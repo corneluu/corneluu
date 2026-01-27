@@ -7,7 +7,7 @@ const Projects = () => {
             title: 'AI Marketing Assistant',
             description: 'A custom-designed AI character that helps with marketing work. This 3D-style persona streamlines creative tasks and assists in building a unique brand presence.',
             technologies: ['AI Generation', 'Digital Design', 'Marketing Strategy'],
-            image: '/images/ai-character.jpg',
+            image: `${import.meta.env.BASE_URL}images/ai-character.jpg`,
             github: 'https://github.com',
             live: 'https://example.com'
         },

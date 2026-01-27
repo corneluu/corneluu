@@ -47,7 +47,7 @@ const Hero = () => {
 
             <div className="hero-visual">
                 <div className="hero-image-container">
-                    <img src="/images/profile.jpg" alt="Miron Cornel-Iosif" className="hero-image" />
+                    <img src={`${import.meta.env.BASE_URL}images/profile.jpg`} alt="Miron Cornel-Iosif" className="hero-image" />
                     <div className="hero-image-overlay">
                         <p className="hero-location-label">Based in</p>
                         <p className="hero-location">Timișoara, Romania</p>
