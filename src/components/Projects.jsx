@@ -18,7 +18,7 @@ const Projects = () => {
             technologies: ['React', 'Vite', 'CSS', 'JavaScript'],
             image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80',
             github: 'https://github.com',
-            live: 'https://example.com'
+            live: 'https://corneluu.github.io/corneluu'
         },
         {
             featured: true,
