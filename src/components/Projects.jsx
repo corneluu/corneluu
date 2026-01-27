@@ -4,9 +4,19 @@ const Projects = () => {
     const projects = [
         {
             featured: true,
+            title: 'AI Marketing Assistant',
+            description: 'A custom-designed AI character that helps with marketing work. This 3D-style persona streamlines creative tasks and assists in building a unique brand presence.',
+            technologies: ['AI Generation', 'Digital Design', 'Marketing Strategy'],
+            image: '/images/ai-character.jpg',
+            github: 'https://github.com',
+            live: 'https://example.com'
+        },
+        {
+            featured: true,
             title: 'Portfolio Website',
             description: 'A minimal, dark theme portfolio website built with React and Vite. Features smooth animations, responsive design, and modern UI patterns.',
             technologies: ['React', 'Vite', 'CSS', 'JavaScript'],
+            image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80',
             github: 'https://github.com',
             live: 'https://example.com'
         },
@@ -15,6 +25,7 @@ const Projects = () => {
             title: 'Task Management App',
             description: 'A web app for managing tasks and projects with drag-and-drop functionality. Built with React and local storage for data persistence.',
             technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Local Storage'],
+            image: 'https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=800&q=80',
             github: 'https://github.com',
             live: 'https://example.com'
         }
@@ -39,6 +50,12 @@ const Projects = () => {
                     <div key={index} className={`project-card ${project.featured ? 'featured' : ''}`}>
                         {project.featured && (
                             <span className="project-badge">Featured Project</span>
+                        )}
+
+                        {project.image && (
+                            <div className="project-image">
+                                <img src={project.image} alt={project.title} />
+                            </div>
                         )}
 
                         <div className="project-content">

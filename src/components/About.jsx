@@ -37,6 +37,14 @@ const About = () => {
                     </p>
 
                     <p>
+                        Beyond coding, I have a diverse range of interests and skills. I am a member of the <strong>Harmonia Christi</strong> Catholic Choir in Timișoara, where we perform sacred music and national tours. This experience has taught me the importance of harmony, discipline, and collaboration.
+                    </p>
+
+                    <p>
+                        I also have a technical side dedicated to sound; I know how to <strong>install audio systems for concerts</strong>, ensuring every beat is heard perfectly. And when I'm not near a computer or a stage, you might find me in the kitchen—I have a <strong>year of experience as a pizza maker</strong>, working with all types of dough and mastered the electric oven.
+                    </p>
+
+                    <p>
                         In my spare time, I'm usually exploring new technologies, working on personal
                         projects, or hanging out with my friends and family.
                     </p>

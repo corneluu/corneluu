@@ -44,13 +44,17 @@ const Hero = () => {
                 </a>
             </div>
 
+
             <div className="hero-visual">
-                <div className="hero-card">
-                    <div className="hero-initial">M</div>
-                    <p className="hero-location-label">Based in</p>
-                    <p className="hero-location">Timișoara, Romania</p>
+                <div className="hero-image-container">
+                    <img src="/images/profile.jpg" alt="Miron Cornel-Iosif" className="hero-image" />
+                    <div className="hero-image-overlay">
+                        <p className="hero-location-label">Based in</p>
+                        <p className="hero-location">Timișoara, Romania</p>
+                    </div>
                 </div>
             </div>
+
 
             <div className="scroll-indicator">
                 <svg width="20" height="30" viewBox="0 0 20 30">
