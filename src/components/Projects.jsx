@@ -47,20 +47,19 @@ const Projects = () => {
 
             <div className="projects-grid">
                 {projects.map((project, index) => (
-                    <div key={index} className={`project-card ${project.featured ? 'featured' : ''}`}>
-                        {project.featured && (
-                            <span className="project-badge">Featured Project</span>
-                        )}
-
-                        {project.image && (
-                            <div className="project-image">
-                                <img src={project.image} alt={project.title} />
-                            </div>
-                        )}
+                    <div key={index} className={`project-card ${index % 2 === 0 ? 'image-left' : 'image-right'}`}>
+                        <div className="project-image">
+                            <img src={project.image} alt={project.title} />
+                        </div>
 
                         <div className="project-content">
+                            {project.featured && (
+                                <span className="project-badge">Featured Project</span>
+                            )}
                             <h3 className="project-title">{project.title}</h3>
-                            <p className="project-description">{project.description}</p>
+                            <div className="project-description">
+                                <p>{project.description}</p>
+                            </div>
 
                             <div className="project-tech">
                                 {project.technologies.map((tech, i) => (
