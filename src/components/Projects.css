@@ -39,10 +39,11 @@
 
 .project-image {
     width: 100%;
-    height: 300px;
+    height: 400px;
     border-radius: 8px;
     overflow: hidden;
     position: relative;
+    background-color: #000;
 }
 
 .image-right .project-image {
@@ -52,15 +53,14 @@
 .project-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    /* Using contain to ensure whole AI character is visible */
-    background: #000;
-    /* Contrast for the character */
+    object-fit: cover;
+    object-position: top;
+    /* Ensures the face is visible */
     transition: var(--transition-normal);
 }
 
 .project-card:hover .project-image img {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .project-content {
