@@ -9,7 +9,7 @@ const Experience = () => {
             technologies: ['React', 'JavaScript', 'Next.js', 'Vite']
         },
         {
-            period: '2023 - Present',
+            period: '2024 - Present',
             title: 'Member · Harmonia Christi Choir',
             description: 'Active member of the Catholic Choir in Timișoara. Performing sacred music, national tours, and collaborating with diverse musical groups.',
             technologies: ['Sacred Music', 'Teamwork', 'Performance']
@@ -21,7 +21,7 @@ const Experience = () => {
             technologies: ['Culinary Arts', 'Time Management', 'Precision']
         },
         {
-            period: '2022 - Present',
+            period: '2024 - Present',
             title: 'Audio Technician · Events & Concerts',
             description: 'Specialize in installing and configuring professional audio systems for live performances and concerts.',
             technologies: ['Audio Engineering', 'Live Sound', 'Technical Setup']
