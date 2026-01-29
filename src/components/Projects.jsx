@@ -28,15 +28,6 @@ const Projects = () => {
             image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80',
             github: 'https://github.com',
             live: 'https://corneluu.github.io/corneluu/'
-        },
-        {
-            featured: true,
-            title: 'Task Management App',
-            description: 'A web app for managing tasks and projects with drag-and-drop functionality. Built with React and local storage for data persistence.',
-            technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Local Storage'],
-            image: 'https://images.unsplash.com/photo-1484417894907-623942c8ee29?w=800&q=80',
-            github: 'https://github.com',
-            live: 'https://example.com'
         }
     ];
 
@@ -99,4 +90,4 @@ const Projects = () => {
 };
 
 export default Projects;
- 
+
