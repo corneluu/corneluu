@@ -7,7 +7,7 @@ const Projects = () => {
             title: 'Harmonia Christi',
             description: 'A secure choir sheet music platform with code-based authentication. Provides chorists with protected access to partiture and audio resources through a custom security protocol.',
             technologies: ['React', 'Vite', 'JavaScript', 'CSS'],
-            image: `${import.meta.env.BASE_URL}images/harmonia-christi.png`,
+            image: `${import.meta.env.BASE_URL}images/harmonia-christi.jpg`,
             github: 'https://github.com/corneluu/harmonia-christi',
             live: 'https://corneluu.github.io/harmonia-christi/'
         },
