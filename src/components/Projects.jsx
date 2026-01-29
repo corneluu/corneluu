@@ -4,6 +4,15 @@ const Projects = () => {
     const projects = [
         {
             featured: true,
+            title: 'Harmonia Christi',
+            description: 'A secure choir sheet music platform with code-based authentication. Provides chorists with protected access to partiture and audio resources through a custom security protocol.',
+            technologies: ['React', 'Vite', 'JavaScript', 'CSS'],
+            image: `${import.meta.env.BASE_URL}images/harmonia-christi.png`,
+            github: 'https://github.com/corneluu/harmonia-christi',
+            live: 'https://corneluu.github.io/harmonia-christi/'
+        },
+        {
+            featured: true,
             title: 'AI Marketing Assistant',
             description: 'A custom-designed AI character that helps with marketing work. This 3D-style persona streamlines creative tasks and assists in building a unique brand presence.',
             technologies: ['AI Generation', 'Digital Design', 'Marketing Strategy'],
