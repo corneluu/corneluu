@@ -4,6 +4,15 @@ const Projects = () => {
     const projects = [
         {
             featured: true,
+            title: 'Feeling',
+            description: 'A quiet, human, and intentional application that offers emotionally aligned verses and reflections based on how you feel. It provides a moment of peace and grounding through AI-driven spiritual reflection.',
+            technologies: ['React', 'Node.js', 'Express', 'OpenAI'],
+            image: `${import.meta.env.BASE_URL}images/feeling.png`,
+            github: 'https://github.com/corneluu/feeling',
+            live: 'https://corneluu.github.io/feeling/'
+        },
+        {
+            featured: true,
             title: 'Harmonia Christi',
             description: 'A secure choir sheet music platform with code-based authentication. Provides chorists with protected access to partiture and audio resources through a custom security protocol.',
             technologies: ['React', 'Vite', 'JavaScript', 'CSS'],
