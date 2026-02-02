@@ -4,6 +4,15 @@ const Projects = () => {
     const projects = [
         {
             featured: true,
+            title: 'MGM Bastion',
+            description: 'A refined bilingual digital menu for an Italian restaurant located in Timișoara\'s historic Bastion. Focuses on a wood-fired pizza and panini menu with a rustic, authentic aesthetic.',
+            technologies: ['React', 'Vite', 'Lucide React', 'CSS'],
+            image: `${import.meta.env.BASE_URL}images/mgm.png`,
+            github: 'https://github.com/corneluu/mgm',
+            live: 'https://corneluu.github.io/mgm/'
+        },
+        {
+            featured: true,
             title: 'Feeling',
             description: 'A quiet, human, and intentional application that offers emotionally aligned verses and reflections based on how you feel. It provides a moment of peace and grounding through AI-driven spiritual reflection.',
             technologies: ['React', 'Node.js', 'Express', 'OpenAI'],
