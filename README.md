@@ -1,168 +1,36 @@
-# Miron Cornel-Iosif - Portfolio
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A modern, responsive portfolio website built with React and Vite, featuring a dark navy theme with teal accents.
+## Getting Started
 
-![Portfolio Preview](https://via.placeholder.com/800x400/0a192f/64ffda?text=Portfolio+Preview)
+First, run the development server:
 
-## 🚀 Features
-
-- **Modern Design**: Dark theme with smooth animations and micro-interactions
-- **Fully Responsive**: Optimized for desktop, tablet, and mobile devices
-- **Smooth Scrolling**: Navigation with smooth scroll to sections
-- **Interactive Components**: Hover effects, animated cards, and transitions
-- **SEO Optimized**: Proper meta tags and semantic HTML structure
-
-## 🛠️ Built With
-
-- **React** - UI library
-- **Vite** - Build tool and dev server
-- **Vanilla CSS** - Styling with CSS variables
-- **Google Fonts (Inter)** - Typography
-
-## 📦 Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/portfolio.git
-cd portfolio
-```
-
-2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start the development server:
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 🏗️ Build for Production
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-To create a production build:
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```bash
-npm run build
-```
+## Learn More
 
-The built files will be in the `dist` folder, ready to be deployed.
+To learn more about Next.js, take a look at the following resources:
 
-## 🚀 Deployment
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-### GitHub Pages
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-1. Install the `gh-pages` package:
-```bash
-npm install --save-dev gh-pages
-```
+## Deploy on Vercel
 
-2. Add these scripts to `package.json`:
-```json
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-}
-```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-3. Add `base` to `vite.config.js`:
-```javascript
-export default defineConfig({
-  plugins: [react()],
-  base: '/portfolio/'
-})
-```
-
-4. Deploy:
-```bash
-npm run deploy
-```
-
-### Vercel / Netlify
-
-Simply connect your GitHub repository to Vercel or Netlify, and they will automatically build and deploy your site.
-
-## 📁 Project Structure
-
-```
-portfolio/
-├── public/
-├── src/
-│   ├── components/
-│   │   ├── Navbar.jsx
-│   │   ├── Navbar.css
-│   │   ├── Hero.jsx
-│   │   ├── Hero.css
-│   │   ├── About.jsx
-│   │   ├── About.css
-│   │   ├── Experience.jsx
-│   │   ├── Experience.css
-│   │   ├── Projects.jsx
-│   │   ├── Projects.css
-│   │   ├── Contact.jsx
-│   │   ├── Contact.css
-│   │   ├── Footer.jsx
-│   │   └── Footer.css
-│   ├── App.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.jsx
-├── index.html
-├── package.json
-└── vite.config.js
-```
-
-## 🎨 Color Palette
-
-- **Background Primary**: `#0a192f` (Dark Navy)
-- **Background Secondary**: `#112240`
-- **Text Primary**: `#ccd6f6` (Light Slate)
-- **Text Secondary**: `#8892b0` (Slate)
-- **Accent**: `#64ffda` (Teal)
-
-## 📝 Customization
-
-### Update Personal Information
-
-Edit the following files to customize with your information:
-
-1. **Hero Section** (`src/components/Hero.jsx`):
-   - Name, tagline, description
-   - Social media links
-   - Location
-
-2. **About Section** (`src/components/About.jsx`):
-   - Bio text
-   - Technologies
-   - Stats
-
-3. **Experience Section** (`src/components/Experience.jsx`):
-   - Education/work history
-   - Dates and descriptions
-
-4. **Projects Section** (`src/components/Projects.jsx`):
-   - Project titles, descriptions
-   - Technologies used
-   - Links to GitHub/live demos
-
-5. **Contact Section** (`src/components/Contact.jsx`):
-   - Email address
-   - Location
-   - Social links
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 👤 Author
-
-**Miron Cornel-Iosif**
-
-- Location: Timișoara, Romania
-- University: Tibiscus University, FCIA (2nd Year)
-- Previous: Liceul de Arte Ion Vidu
-
----
-
-⭐ If you like this project, please give it a star on GitHub!
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
