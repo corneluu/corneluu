@@ -22,8 +22,9 @@ export default function Footer() {
                     >
                         Corneluu
                     </a>
-                    <p className="text-sm text-[#525252]">
-                        © {new Date().getFullYear()} All rights reserved.
+                    <p className="text-sm text-[#525252] flex items-center gap-2">
+                        <span>© {new Date().getFullYear()} All rights reserved.</span>
+                        <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-mono font-medium tracking-wider text-muted-foreground">v2.0.0</span>
                     </p>
                 </div>
 
