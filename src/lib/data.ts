@@ -176,11 +176,11 @@ export const projects: Project[] = [
 ];
 
 export const skills: Skill[] = [
-    { name: "React", level: "Advanced", percentage: 95 },
-    { name: "TypeScript", level: "Advanced", percentage: 90 },
-    { name: "Next.js", level: "Advanced", percentage: 85 },
-    { name: "Tailwind CSS", level: "Advanced", percentage: 90 },
-    { name: "JavaScript", level: "Advanced", percentage: 95 },
+    { name: "React", level: "Intermediate", percentage: 65 },
+    { name: "TypeScript", level: "Learning", percentage: 40 },
+    { name: "Next.js", level: "Learning", percentage: 35 },
+    { name: "Tailwind CSS", level: "Intermediate", percentage: 75 },
+    { name: "JavaScript", level: "Advanced", percentage: 90 },
     { name: "HTML/CSS", level: "Advanced", percentage: 95 },
 ];
 
