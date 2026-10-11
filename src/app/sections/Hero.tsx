@@ -112,7 +112,8 @@ export default developer;`;
                             <ArrowDown className="h-4 w-4" />
                         </button>
                         <a
-                            href="/corneluu/cv.pdf"
+                            href="/corneluu/Miron%20Cornel%20Iosif.pdf"
+                            download="Miron Cornel Iosif.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 rounded-lg border border-border bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-secondary hover:scale-[1.05] active:scale-95"
