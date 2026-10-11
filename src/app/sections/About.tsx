@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function About() {
+    const { t } = useLanguage();
+
     return (
         <section id="about" className="py-32 px-6 lg:px-12">
             <div className="mx-auto max-w-[1200px]">
@@ -30,7 +33,7 @@ export default function About() {
                         <div className="absolute -bottom-5 -left-5 h-20 w-[2px] bg-primary hidden lg:block" />
                         {/* Experience badge */}
                         <div className="absolute -top-4 -right-4 rounded-lg bg-primary px-5 py-3 text-sm font-bold text-primary-foreground hidden lg:block">
-                            2+ Years
+                            {t.about.badgeYears}
                         </div>
                     </motion.div>
 
@@ -42,35 +45,25 @@ export default function About() {
                         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                     >
                         <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.1em] text-primary">
-                            About Me
+                            {t.about.badge}
                         </span>
 
                         <h2 className="mb-6 text-4xl font-bold leading-[1.2] tracking-[-0.02em] text-foreground lg:text-[36px]">
-                            A mix of design, code, and audio
+                            {t.about.heading}
                         </h2>
 
                         <div className="space-y-4 text-base leading-[1.7] text-muted-foreground">
-                            <p>
-                                I&apos;m Miron Cornel-Iosif, a second-year Computer Science
-                                student at Tibiscus University in Timișoara, specializing in
-                                modern web development.
-                            </p>
-                            <p>
-                                My journey is a blend of creative arts and technical
-                                precision. Beyond building web experiences, I work as an
-                                audio technician for concert venues and am an active part of
-                                a choir team, performing as a bass. These experiences taught
-                                me precision, teamwork, and the importance of harmony.
-                            </p>
+                            <p>{t.about.p1}</p>
+                            <p>{t.about.p2}</p>
                         </div>
 
                         {/* Personal Details Grid */}
                         <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
                             {[
-                                { label: "Name", value: "Miron Cornel-Iosif" },
-                                { label: "Location", value: "Timișoara, Romania" },
-                                { label: "Email", value: "cornelmrn18@gmail.com" },
-                                { label: "Availability", value: "Open to work" },
+                                { label: t.about.details.nameLabel, value: "Miron Cornel-Iosif" },
+                                { label: t.about.details.locationLabel, value: t.about.details.locationValue },
+                                { label: t.about.details.emailLabel, value: "cornelmrn18@gmail.com" },
+                                { label: t.about.details.availabilityLabel, value: t.about.details.availabilityValue },
                             ].map((detail) => (
                                 <div key={detail.label}>
                                     <span className="text-sm text-[#525252]">

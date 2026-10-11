@@ -2,8 +2,10 @@
 
 import { ArrowUp } from "lucide-react";
 import { smoothScrollTo } from "@/lib/utils";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+    const { t } = useLanguage();
     const scrollToTop = () => {
         smoothScrollTo(0);
     };
@@ -23,14 +25,15 @@ export default function Footer() {
                         Corneluu
                     </a>
                     <p className="text-sm text-[#525252] flex items-center gap-2">
-                        <span>© {new Date().getFullYear()} All rights reserved.</span>
+                        <span>© {new Date().getFullYear()} {t.footer.rights}</span>
                         <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-mono font-medium tracking-wider text-muted-foreground">v2.0.1</span>
                     </p>
                 </div>
 
                 <button
                     onClick={scrollToTop}
-                    aria-label="Back to top"
+                    aria-label={t.footer.backToTop}
+                    title={t.footer.backToTop}
                     className="group flex h-10 w-10 items-center justify-center rounded-full border border-border bg-transparent transition-all duration-300 hover:scale-110 hover:bg-secondary active:scale-95"
                 >
                     <ArrowUp className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-foreground" />

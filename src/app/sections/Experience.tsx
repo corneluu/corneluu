@@ -3,8 +3,12 @@
 import { motion } from "framer-motion";
 import { experiences } from "@/lib/data";
 import TimelineItem from "@/app/components/TimelineItem";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Experience() {
+    const { t } = useLanguage();
+    const experienceList = t.experience.items || experiences;
+
     return (
         <section id="experience" className="py-32 px-6 lg:px-12">
             <div className="mx-auto max-w-[800px]">
@@ -17,24 +21,24 @@ export default function Experience() {
                     className="mb-16"
                 >
                     <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.1em] text-primary">
-                        Journey
+                        {t.experience.badge}
                     </span>
                     <h2 className="mb-4 text-3xl font-bold tracking-[-0.02em] text-foreground lg:text-5xl">
-                        Experience & Education
+                        {t.experience.heading}
                     </h2>
                     <p className="max-w-[600px] text-lg text-muted-foreground">
-                        My professional path and academic background.
+                        {t.experience.description}
                     </p>
                 </motion.div>
 
                 {/* Timeline */}
                 <div className="relative ml-4 lg:ml-6">
-                    {experiences.map((exp, index) => (
+                    {experienceList.map((exp, index) => (
                         <TimelineItem
                             key={exp.title + exp.period}
                             experience={exp}
                             index={index}
-                            isLast={index === experiences.length - 1}
+                            isLast={index === experienceList.length - 1}
                         />
                     ))}
                 </div>

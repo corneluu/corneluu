@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -78,7 +79,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

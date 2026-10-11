@@ -3,6 +3,7 @@
 import { motion, Variants } from "framer-motion";
 import { Music, Fish, Target, Gamepad2, Cpu, Camera, ExternalLink, LucideIcon } from "lucide-react";
 import { hobbies } from "@/lib/data";
+import { useLanguage } from "@/context/LanguageContext";
 
 const iconMap: Record<string, LucideIcon> = {
     Music,
@@ -19,6 +20,8 @@ const fadeUp: Variants = {
 };
 
 export default function Hobbies() {
+    const { t } = useLanguage();
+
     return (
         <section id="hobbies" className="py-32 px-6 lg:px-12 bg-secondary/30">
             <div className="mx-auto max-w-[1200px]">
@@ -30,13 +33,13 @@ export default function Hobbies() {
                     variants={fadeUp}
                 >
                     <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.1em] text-primary">
-                        Free Time
+                        {t.hobbies.badge}
                     </span>
                     <h2 className="mb-4 text-3xl font-bold tracking-[-0.02em] text-foreground lg:text-5xl">
-                        What I like to do
+                        {t.hobbies.heading}
                     </h2>
                     <p className="max-w-[600px] text-lg text-muted-foreground">
-                        When I&apos;m not writing code, you can find me recharging through these activities.
+                        {t.hobbies.description}
                     </p>
                 </motion.div>
 
@@ -44,6 +47,11 @@ export default function Hobbies() {
                 <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {hobbies.map((hobby, index) => {
                         const Icon = iconMap[hobby.icon];
+                        const itemTrans = t.hobbies.items[hobby.name];
+                        const displayName = itemTrans?.name || hobby.name;
+                        const displayDescription = itemTrans?.description || hobby.description;
+                        const displayLinkText = itemTrans?.linkText || hobby.linkText;
+
                         return (
                             <motion.div
                                 key={hobby.name}
@@ -61,10 +69,10 @@ export default function Hobbies() {
                                     <Icon className="h-6 w-6" />
                                 </div>
                                 <h3 className="mb-2 text-xl font-semibold text-foreground">
-                                    {hobby.name}
+                                    {displayName}
                                 </h3>
                                 <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-                                    {hobby.description}
+                                    {displayDescription}
                                 </p>
 
                                 {hobby.linkUrl && (
@@ -75,7 +83,7 @@ export default function Hobbies() {
                                             rel="noopener noreferrer"
                                             className="inline-flex items-center gap-2 text-sm font-medium text-primary transition-colors hover:text-foreground"
                                         >
-                                            {hobby.linkText}
+                                            {displayLinkText}
                                             <ExternalLink className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                                         </a>
                                     </div>

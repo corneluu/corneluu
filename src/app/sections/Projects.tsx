@@ -5,16 +5,18 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { projects } from "@/lib/data";
 import ProjectCard from "@/app/components/ProjectCard";
-
-const categories = [
-    { label: "All", value: "all" },
-    { label: "Web App", value: "web-app" },
-    { label: "Mobile", value: "mobile" },
-    { label: "Experiment", value: "experiment" },
-] as const;
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Projects() {
+    const { t } = useLanguage();
     const [activeFilter, setActiveFilter] = useState<string>("all");
+
+    const categories = [
+        { label: t.projects.filters.all, value: "all" },
+        { label: t.projects.filters.webApp, value: "web-app" },
+        { label: t.projects.filters.mobile, value: "mobile" },
+        { label: t.projects.filters.experiment, value: "experiment" },
+    ];
 
     const filteredProjects =
         activeFilter === "all"
@@ -32,14 +34,13 @@ export default function Projects() {
                     transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                 >
                     <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.1em] text-primary">
-                        Featured Work
+                        {t.projects.badge}
                     </span>
                     <h2 className="mb-4 text-3xl font-bold tracking-[-0.02em] text-foreground lg:text-5xl">
-                        Projects that showcase my expertise
+                        {t.projects.heading}
                     </h2>
                     <p className="max-w-[600px] text-lg text-muted-foreground">
-                        A selection of my recent work, from web applications to experimental
-                        interfaces.
+                        {t.projects.description}
                     </p>
                 </motion.div>
 

@@ -6,8 +6,11 @@ import Image from "next/image";
 import { socialLinks } from "@/lib/data";
 import { SocialLink } from "@/types";
 import ContactForm from "@/app/components/ContactForm";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Contact() {
+    const { t } = useLanguage();
+
     return (
         <section id="contact" className="py-32 px-6 lg:px-12">
             <div className="mx-auto max-w-[1200px]">
@@ -23,14 +26,13 @@ export default function Contact() {
                         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                     >
                         <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.1em] text-primary">
-                            Get In Touch
+                            {t.contact.badge}
                         </span>
                         <h2 className="mb-4 text-3xl font-bold tracking-[-0.02em] text-foreground lg:text-5xl">
-                            Let&apos;s work together
+                            {t.contact.heading}
                         </h2>
                         <p className="mb-12 text-lg text-muted-foreground">
-                            Have a project in mind or want to discuss opportunities? I&apos;d love
-                            to hear from you.
+                            {t.contact.description}
                         </p>
 
                         <div className="space-y-8">
@@ -40,7 +42,7 @@ export default function Contact() {
                                     <Mail className="h-6 w-6" />
                                 </div>
                                 <div>
-                                    <div className="mb-1 text-sm text-[#525252]">Email</div>
+                                    <div className="mb-1 text-sm text-[#525252]">{t.contact.emailLabel}</div>
                                     <a
                                         href="mailto:cornelmrn18@gmail.com"
                                         className="text-base font-medium text-foreground transition-colors hover:text-primary"
@@ -55,9 +57,9 @@ export default function Contact() {
                                     <MapPin className="h-6 w-6" />
                                 </div>
                                 <div>
-                                    <div className="mb-1 text-sm text-[#525252]">Location</div>
+                                    <div className="mb-1 text-sm text-[#525252]">{t.contact.locationLabel}</div>
                                     <div className="text-base font-medium text-foreground">
-                                        Timișoara, Romania
+                                        {t.contact.locationValue}
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +68,7 @@ export default function Contact() {
                         {/* Social Links Grid */}
                         <div className="mt-12">
                             <div className="mb-4 text-sm font-semibold text-foreground">
-                                Connect on social media
+                                {t.contact.socialHeading}
                             </div>
                             <div className="flex flex-wrap gap-3">
                                 {(socialLinks as SocialLink[]).map((link) => (

@@ -10,9 +10,13 @@ export interface Project {
     featured: boolean;
 }
 
+export type Language = "en" | "ro" | "de" | "it";
+
+export type SkillLevel = "Advanced" | "Intermediate" | "Beginner" | "Learning";
+
 export interface Skill {
     name: string;
-    level: "Advanced" | "Intermediate" | "Beginner";
+    level: SkillLevel;
     percentage: number;
 }
 

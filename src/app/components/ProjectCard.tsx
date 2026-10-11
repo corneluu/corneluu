@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import { Project } from "@/types";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface ProjectCardProps {
     project: Project;
@@ -11,6 +12,11 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
+    const { t } = useLanguage();
+    const itemTranslation = t.projects.items[project.id];
+    const displayTitle = itemTranslation?.title || project.title;
+    const displayDescription = itemTranslation?.description || project.description;
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -27,7 +33,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
                 <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={displayTitle}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -38,10 +44,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             {/* Content Area */}
             <div className="p-6">
                 <h3 className="mb-2 text-xl font-semibold text-foreground">
-                    {project.title}
+                    {displayTitle}
                 </h3>
                 <p className="mb-4 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
-                    {project.description}
+                    {displayDescription}
                 </p>
 
                 {/* Tech Stack */}

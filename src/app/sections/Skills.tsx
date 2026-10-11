@@ -17,6 +17,7 @@ import {
 import { skills, tools, learningTools } from "@/lib/data";
 import SkillBar from "@/app/components/SkillBar";
 import { Tool } from "@/types";
+import { useLanguage } from "@/context/LanguageContext";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
     GitBranch,
@@ -51,6 +52,8 @@ function ToolItem({ tool, index }: { tool: Tool; index: number }) {
 }
 
 export default function Skills() {
+    const { t } = useLanguage();
+
     return (
         <section id="skills" className="py-32 px-6 lg:px-12">
             <div className="mx-auto max-w-[1200px]">
@@ -62,13 +65,13 @@ export default function Skills() {
                     transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                 >
                     <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.1em] text-primary">
-                        Expertise
+                        {t.skills.badge}
                     </span>
                     <h2 className="mb-4 text-3xl font-bold tracking-[-0.02em] text-foreground lg:text-5xl">
-                        Technologies I work with
+                        {t.skills.heading}
                     </h2>
                     <p className="max-w-[600px] text-lg text-muted-foreground">
-                        My technical toolkit for building modern web applications.
+                        {t.skills.description}
                     </p>
                 </motion.div>
 
@@ -76,7 +79,7 @@ export default function Skills() {
                     {/* Technical Skills - Progress Bars */}
                     <div>
                         <h3 className="mb-8 text-lg font-semibold text-foreground">
-                            Frontend Development
+                            {t.skills.frontendHeading}
                         </h3>
                         <div className="space-y-6">
                             {skills.map((skill, index) => (
@@ -89,7 +92,7 @@ export default function Skills() {
                     <div className="space-y-12">
                         <div>
                             <h3 className="mb-8 text-lg font-semibold text-foreground">
-                                Tools & Workflow
+                                {t.skills.toolsHeading}
                             </h3>
                             <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
                                 {tools.map((tool, index) => (
@@ -100,7 +103,7 @@ export default function Skills() {
 
                         <div>
                             <h3 className="mb-8 text-lg font-semibold text-foreground">
-                                Currently Learning
+                                {t.skills.learningHeading}
                             </h3>
                             <div className="grid grid-cols-2 gap-6 sm:grid-cols-3">
                                 {learningTools.map((tool, index) => (

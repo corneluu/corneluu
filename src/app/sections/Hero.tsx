@@ -3,8 +3,12 @@
 import { motion, Variants } from "framer-motion";
 import { smoothScrollTo } from "@/lib/utils";
 import { ArrowDown, Download } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const codeSnippet = `import { useState } from 'react';
+export default function Hero() {
+    const { t } = useLanguage();
+
+    const codeSnippet = `import { useState } from 'react';
 
 interface Portfolio {
   name: string;
@@ -14,7 +18,7 @@ interface Portfolio {
 
 const developer: Portfolio = {
   name: "Miron Cornel-Iosif",
-  role: "Frontend Developer",
+  role: "${t.hero.codeRole}",
   skills: [
     "React",
     "TypeScript",
@@ -25,7 +29,6 @@ const developer: Portfolio = {
 
 export default developer;`;
 
-export default function Hero() {
     const fadeUp: Variants = {
         hidden: { opacity: 0, y: 30 },
         visible: (delay: number) => ({
@@ -64,7 +67,7 @@ export default function Hero() {
                         variants={fadeUp}
                         className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm text-primary"
                     >
-                        👋 Available for work
+                        {t.hero.badge}
                     </motion.div>
 
                     <motion.h1
@@ -74,7 +77,7 @@ export default function Hero() {
                         variants={fadeUp}
                         className="max-w-[600px] text-4xl font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-[56px] lg:text-[72px]"
                     >
-                        Building digital experiences that matter
+                        {t.hero.heading}
                     </motion.h1>
 
                     <motion.p
@@ -84,9 +87,7 @@ export default function Hero() {
                         variants={fadeUp}
                         className="mt-6 max-w-[540px] text-lg leading-relaxed text-muted-foreground"
                     >
-                        I&apos;m Miron Cornel-Iosif, a frontend developer, audio technician, and choir bass specializing in React,
-                        TypeScript, and modern web technologies. I create accessible,
-                        performant, and beautiful user interfaces.
+                        {t.hero.description}
                     </motion.p>
 
                     <motion.div
@@ -107,7 +108,7 @@ export default function Hero() {
                             }}
                             className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:brightness-110 hover:scale-[1.05] active:scale-95 shadow-lg shadow-primary/20"
                         >
-                            View My Work
+                            {t.hero.ctaWork}
                             <ArrowDown className="h-4 w-4" />
                         </button>
                         <a
@@ -116,7 +117,7 @@ export default function Hero() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 rounded-lg border border-border bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-secondary hover:scale-[1.05] active:scale-95"
                         >
-                            Download CV
+                            {t.hero.ctaCv}
                             <Download className="h-4 w-4" />
                         </a>
                     </motion.div>
@@ -129,9 +130,9 @@ export default function Hero() {
                         className="mt-12 flex items-center gap-6"
                     >
                         {[
-                            { number: "2+", label: "Years Experience" },
-                            { number: "10+", label: "Projects" },
-                            { number: "5+", label: "Technologies" },
+                            { number: "2+", label: t.hero.stats.yearsExp },
+                            { number: "10+", label: t.hero.stats.projects },
+                            { number: "5+", label: t.hero.stats.technologies },
                         ].map((stat, index) => (
                             <div key={stat.label} className="flex items-center gap-6">
                                 {index > 0 && (

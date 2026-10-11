@@ -2,8 +2,10 @@
 
 import { useState, FormEvent } from "react";
 import { Send, Loader2 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactForm() {
+    const { t } = useLanguage();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -51,7 +53,7 @@ export default function ContactForm() {
                     id="contact-name"
                     type="text"
                     name="name"
-                    placeholder="Your name"
+                    placeholder={t.contact.form.namePlaceholder}
                     required
                     aria-required="true"
                     value={formData.name}
@@ -67,7 +69,7 @@ export default function ContactForm() {
                     id="contact-email"
                     type="email"
                     name="email"
-                    placeholder="your@email.com"
+                    placeholder={t.contact.form.emailPlaceholder}
                     required
                     aria-required="true"
                     value={formData.email}
@@ -83,7 +85,7 @@ export default function ContactForm() {
                     id="contact-subject"
                     type="text"
                     name="subject"
-                    placeholder="Project inquiry"
+                    placeholder={t.contact.form.subjectPlaceholder}
                     required
                     aria-required="true"
                     value={formData.subject}
@@ -99,7 +101,7 @@ export default function ContactForm() {
                     id="contact-message"
                     name="message"
                     rows={5}
-                    placeholder="Tell me about your project..."
+                    placeholder={t.contact.form.messagePlaceholder}
                     required
                     aria-required="true"
                     value={formData.message}
@@ -116,7 +118,7 @@ export default function ContactForm() {
                         className="mt-1 h-4 w-4 rounded border-border bg-background text-primary focus:ring-primary/20"
                     />
                     <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                        I agree to be contacted via email regarding my inquiry.
+                        {t.contact.form.consentEmail}
                     </span>
                 </label>
                 <label className="flex items-start gap-3 cursor-pointer group">
@@ -126,7 +128,7 @@ export default function ContactForm() {
                         className="mt-1 h-4 w-4 rounded border-border bg-background text-primary focus:ring-primary/20"
                     />
                     <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                        I confirm that the information provided is correct and I&apos;m ready to collaborate.
+                        {t.contact.form.consentAccuracy}
                     </span>
                 </label>
             </div>
@@ -139,11 +141,11 @@ export default function ContactForm() {
                 {status === "sending" ? (
                     <>
                         <Loader2 className="h-4 w-4 animate-spin" />
-                        Sending...
+                        {t.contact.form.sending}
                     </>
                 ) : (
                     <>
-                        Send Message
+                        {t.contact.form.submit}
                         <Send className="h-4 w-4" />
                     </>
                 )}
@@ -151,12 +153,12 @@ export default function ContactForm() {
 
             {status === "success" && (
                 <p className="text-center text-sm text-green-400">
-                    Message sent successfully! I&apos;ll get back to you soon.
+                    {t.contact.form.success}
                 </p>
             )}
             {status === "error" && (
                 <p className="text-center text-sm text-destructive">
-                    Something went wrong. Please try again or email me directly.
+                    {t.contact.form.error}
                 </p>
             )}
         </form>
