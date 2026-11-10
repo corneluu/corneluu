@@ -16,7 +16,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Miron Cornel-Iosif - Frontend Developer | React & TypeScript Expert",
+  title: "Miron Cornel-Iosif - Frontend Developer",
   description:
     "Professional portfolio of Miron Cornel-Iosif, a frontend developer specializing in React, TypeScript, and modern web technologies.",
   metadataBase: new URL("https://corneluu.github.io"),
@@ -53,7 +53,6 @@ export default function RootLayout({
     jobTitle: "Frontend Developer & Audio Technician",
     sameAs: [
       "https://github.com/corneluu",
-      "https://linkedin.com",
     ],
     knowsAbout: ["React", "TypeScript", "Next.js", "Audio Engineering"],
     address: {

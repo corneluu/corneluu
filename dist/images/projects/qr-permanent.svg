@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" role="img" aria-label="QR code linking through a redirect to a video meeting">
+  <rect width="1440" height="900" fill="#121214"/>
+  <g fill="none" stroke="#2e2e33" stroke-width="2">
+    <rect x="300" y="250" width="400" height="400" rx="28" fill="#ededee" stroke="none"/>
+  </g>
+  <g fill="#0b0b0c">
+    <path fill-rule="evenodd" d="M340 290h100v100H340zM356 306v68h68v-68z"/>
+    <rect x="374" y="324" width="32" height="32"/>
+    <path fill-rule="evenodd" d="M560 290h100v100H560zM576 306v68h68v-68z"/>
+    <rect x="594" y="324" width="32" height="32"/>
+    <path fill-rule="evenodd" d="M340 510h100v100H340zM356 526v68h68v-68z"/>
+    <rect x="374" y="544" width="32" height="32"/>
+    <path d="M460 290h20v20h-20zM500 290h40v20h-40zM480 310h20v40h-20zM520 330h20v40h-20zM460 370h40v20h-40zM340 410h40v20h-40zM400 410h20v40h-20zM440 410h60v20h-60zM520 410h20v20h-20zM560 410h40v20h-40zM620 410h40v20h-40zM340 450h20v40h-20zM380 470h40v20h-40zM440 450h20v60h-20zM480 450h60v20h-60zM560 450h20v40h-20zM600 450h60v20h-60zM480 490h20v40h-20zM520 490h40v20h-40zM600 490h20v40h-20zM640 490h20v20h-20zM460 530h20v60h-20zM500 550h40v20h-40zM560 530h20v20h-20zM640 530h20v40h-20zM500 590h20v20h-20zM540 590h60v20h-60zM620 590h40v20h-40zM560 550h60v20h-60z"/>
+  </g>
+  <path d="M770 450h130" stroke="#f0b35a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M874 420l34 30-34 30" fill="none" stroke="#f0b35a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="960" y="360" width="180" height="180" rx="36" fill="#1b1b1e" stroke="#2e2e33" stroke-width="2"/>
+  <rect x="1000" y="414" width="72" height="72" rx="14" fill="#ededee"/>
+  <path d="M1080 438l26-18v60l-26-18z" fill="#ededee"/>
+</svg>

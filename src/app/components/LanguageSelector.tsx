@@ -10,15 +10,14 @@ import { motion, AnimatePresence } from "framer-motion";
 interface LanguageOption {
     code: Language;
     label: string;
-    flag: string;
     short: string;
 }
 
 const LANGUAGES: LanguageOption[] = [
-    { code: "en", label: "English", flag: "🇬🇧", short: "EN" },
-    { code: "ro", label: "Română", flag: "🇷🇴", short: "RO" },
-    { code: "de", label: "Deutsch", flag: "🇩🇪", short: "DE" },
-    { code: "it", label: "Italiano", flag: "🇮🇹", short: "IT" },
+    { code: "en", label: "English", short: "EN" },
+    { code: "ro", label: "Română", short: "RO" },
+    { code: "de", label: "Deutsch", short: "DE" },
+    { code: "it", label: "Italiano", short: "IT" },
 ];
 
 interface LanguageSelectorProps {
@@ -81,7 +80,6 @@ export default function LanguageSelector({ className, isMobile = false }: Langua
                                 )}
                             >
                                 <span className="flex items-center gap-2">
-                                    <span className="text-base leading-none">{item.flag}</span>
                                     <span>{item.label}</span>
                                 </span>
                                 {isSelected && <Check className="h-3.5 w-3.5 text-primary" />}
@@ -108,9 +106,8 @@ export default function LanguageSelector({ className, isMobile = false }: Langua
                         : "border-border bg-card/60 text-muted-foreground hover:border-primary/30 hover:bg-secondary/70 hover:text-foreground"
                 )}
             >
-                <Globe className="h-3.5 w-3.5 text-primary" />
-                <span className="text-sm leading-none">{currentLang.flag}</span>
-                <span className="font-mono">{currentLang.short}</span>
+                <Globe className="h-3.5 w-3.5" />
+                <span>{currentLang.short}</span>
                 <ChevronDown
                     className={cn(
                         "h-3 w-3 text-muted-foreground transition-transform duration-200",
@@ -147,7 +144,6 @@ export default function LanguageSelector({ className, isMobile = false }: Langua
                                         )}
                                     >
                                         <span className="flex items-center gap-2.5">
-                                            <span className="text-base leading-none">{item.flag}</span>
                                             <span>{item.label}</span>
                                         </span>
                                         {isSelected && (

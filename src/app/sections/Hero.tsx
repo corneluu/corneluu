@@ -1,112 +1,87 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
-import { smoothScrollTo } from "@/lib/utils";
+import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowDown, Download } from "lucide-react";
+import { smoothScrollTo } from "@/lib/utils";
 import { useLanguage } from "@/context/LanguageContext";
+import { easeOut } from "@/app/components/Section";
+
+const rise = {
+    hidden: { opacity: 0, y: 16 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easeOut } },
+};
 
 export default function Hero() {
     const { t } = useLanguage();
 
-    const codeSnippet = `import { useState } from 'react';
-
-interface Portfolio {
-  name: string;
-  role: string;
-  skills: string[];
-}
-
-const developer: Portfolio = {
-  name: "Miron Cornel-Iosif",
-  role: "${t.hero.codeRole}",
-  skills: [
-    "React",
-    "TypeScript",
-    "Next.js",
-    "Tailwind CSS",
-  ],
-};
-
-export default developer;`;
-
-    const fadeUp: Variants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: (delay: number) => ({
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                delay,
-                ease: [0.4, 0, 0.2, 1],
-            },
-        }),
-    };
+    const stats = [
+        { number: "2+", label: t.hero.stats.yearsExp },
+        { number: "10+", label: t.hero.stats.projects },
+        { number: "5+", label: t.hero.stats.technologies },
+    ];
 
     return (
-        <section
-            className="relative flex min-h-[700px] max-h-[1000px] items-center pt-16"
-            style={{ height: "100vh" }}
-        >
-            {/* Background grid effect */}
+        <section className="relative overflow-hidden px-6 pb-20 pt-32 lg:px-10 lg:pb-28 lg:pt-44">
+            {/* Soft light from the top edge */}
             <div
-                className="pointer-events-none absolute inset-0 -z-10"
+                aria-hidden
+                className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[520px]"
                 style={{
-                    backgroundImage:
-                        "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0)",
-                    backgroundSize: "40px 40px",
+                    background:
+                        "radial-gradient(60% 100% at 50% 0%, rgba(240,179,90,0.07) 0%, rgba(255,255,255,0.02) 45%, transparent 100%)",
                 }}
             />
 
-            <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-12 px-6 lg:grid-cols-[1fr_0.7fr] lg:px-12">
-                {/* Left Column - Text */}
-                <div>
-                    <motion.div
-                        custom={0}
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUp}
-                        className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-sm text-primary"
+            <div className="mx-auto grid max-w-[1120px] items-end gap-14 lg:grid-cols-[1fr_340px] lg:gap-20">
+                <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    transition={{ staggerChildren: 0.08 }}
+                >
+                    <motion.p
+                        variants={rise}
+                        className="mb-8 inline-flex items-center gap-2.5 text-sm text-muted-foreground"
                     >
-                        {t.hero.badge}
-                    </motion.div>
+                        <span className="relative flex h-2 w-2">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-60" />
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                        </span>
+                        {t.hero.status}
+                    </motion.p>
 
                     <motion.h1
-                        custom={0.1}
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUp}
-                        className="max-w-[600px] text-4xl font-bold leading-[1.1] tracking-[-0.02em] text-foreground sm:text-[56px] lg:text-[72px]"
+                        variants={rise}
+                        className="text-[44px] font-semibold leading-[1.02] tracking-[-0.035em] text-foreground sm:text-6xl lg:text-[76px]"
                     >
-                        {t.hero.heading}
+                        Miron
+                        <br />
+                        Cornel-Iosif
                     </motion.h1>
 
                     <motion.p
-                        custom={0.2}
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUp}
-                        className="mt-6 max-w-[540px] text-lg leading-relaxed text-muted-foreground"
+                        variants={rise}
+                        className="mt-7 max-w-[520px] text-xl leading-snug tracking-[-0.01em] text-foreground lg:text-2xl"
+                    >
+                        {t.hero.role}
+                    </motion.p>
+
+                    <motion.p
+                        variants={rise}
+                        className="mt-5 max-w-[540px] text-base leading-relaxed text-muted-foreground"
                     >
                         {t.hero.description}
                     </motion.p>
 
-                    <motion.div
-                        custom={0.3}
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUp}
-                        className="mt-8 flex flex-wrap gap-4"
-                    >
+                    <motion.div variants={rise} className="mt-9 flex flex-wrap gap-3">
                         <button
                             onClick={() => {
                                 const el = document.getElementById("projects");
                                 if (el) {
-                                    const yOffset = -80; // offset for fixed header
-                                    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                                    smoothScrollTo(y);
+                                    smoothScrollTo(el.getBoundingClientRect().top + window.scrollY);
                                 }
                             }}
-                            className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:brightness-110 hover:scale-[1.05] active:scale-95 shadow-lg shadow-primary/20"
+                            className="btn-primary"
                         >
                             {t.hero.ctaWork}
                             <ArrowDown className="h-4 w-4" />
@@ -116,108 +91,55 @@ export default developer;`;
                             download="Miron Cornel Iosif.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 rounded-lg border border-border bg-transparent px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:bg-secondary hover:scale-[1.05] active:scale-95"
+                            className="btn-ghost"
                         >
                             {t.hero.ctaCv}
                             <Download className="h-4 w-4" />
                         </a>
                     </motion.div>
 
-                    <motion.div
-                        custom={0.4}
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUp}
-                        className="mt-12 flex items-center gap-6"
+                    <motion.dl
+                        variants={rise}
+                        className="mt-14 flex flex-wrap gap-x-10 gap-y-4 border-t border-border pt-6"
                     >
-                        {[
-                            { number: "2+", label: t.hero.stats.yearsExp },
-                            { number: "10+", label: t.hero.stats.projects },
-                            { number: "5+", label: t.hero.stats.technologies },
-                        ].map((stat, index) => (
-                            <div key={stat.label} className="flex items-center gap-6">
-                                {index > 0 && (
-                                    <div className="h-8 w-px bg-border" />
-                                )}
-                                <div>
-                                    <div className="text-sm font-semibold text-foreground">
-                                        {stat.number}
-                                    </div>
-                                    <div className="text-xs text-muted-foreground">
-                                        {stat.label}
-                                    </div>
-                                </div>
+                        {stats.map((stat) => (
+                            <div key={stat.label} className="flex items-baseline gap-2">
+                                <dd className="text-base font-medium tabular-nums text-foreground">
+                                    {stat.number}
+                                </dd>
+                                <dt className="text-sm text-muted-foreground">{stat.label}</dt>
                             </div>
                         ))}
-                    </motion.div>
-                </div>
+                    </motion.dl>
+                </motion.div>
 
-                {/* Right Column - Code Window */}
+                {/* Portrait: unveils upward once, the page's one authored moment */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                    className="hidden animate-float lg:block"
+                    initial={{ clipPath: "inset(100% 0% 0% 0% round 16px)" }}
+                    animate={{ clipPath: "inset(0% 0% 0% 0% round 16px)" }}
+                    transition={{ duration: 1.2, delay: 0.25, ease: easeOut }}
+                    className="relative mx-auto aspect-[4/5] w-full max-w-[340px] overflow-hidden rounded-2xl bg-card lg:mx-0"
                 >
-                    <div className="overflow-hidden rounded-xl border border-border bg-card">
-                        {/* Window Header */}
-                        <div className="flex items-center gap-2 border-b border-border px-4 py-3">
-                            <div className="h-3 w-3 rounded-full bg-[#ef4444]" />
-                            <div className="h-3 w-3 rounded-full bg-[#eab308]" />
-                            <div className="h-3 w-3 rounded-full bg-[#22c55e]" />
-                            <span className="ml-2 text-xs text-muted-foreground">
-                                portfolio.tsx
-                            </span>
-                        </div>
-                        {/* Code Content */}
-                        <div className="p-4">
-                            <pre className="font-mono text-sm leading-relaxed text-muted-foreground">
-                                <code>
-                                    {codeSnippet.split("\n").map((line, i) => (
-                                        <div key={i} className="flex">
-                                            <span className="mr-4 inline-block w-6 text-right text-xs text-muted-foreground/40 select-none">
-                                                {i + 1}
-                                            </span>
-                                            <span
-                                                dangerouslySetInnerHTML={{
-                                                    __html: highlightCode(line),
-                                                }}
-                                            />
-                                        </div>
-                                    ))}
-                                </code>
-                            </pre>
-                        </div>
-                    </div>
+                    <motion.div
+                        initial={{ scale: 1.12 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 1.6, delay: 0.25, ease: easeOut }}
+                        className="absolute inset-0"
+                    >
+                        {/* Source photo is full-length; these offsets crop it to head and shoulders. */}
+                        <Image
+                            src="/corneluu/images/profile.jpg"
+                            alt="Miron Cornel-Iosif"
+                            width={685}
+                            height={1024}
+                            priority
+                            className="absolute max-w-none"
+                            style={{ width: "160%", height: "auto", left: "-35%", top: "-45%" }}
+                        />
+                    </motion.div>
+                    <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
                 </motion.div>
             </div>
         </section>
     );
-}
-
-function highlightCode(line: string): string {
-    return line
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        // 1. Strings first, use single quotes for class to avoid double-quote collision later if any
-        .replace(
-            /(["'])(.*?)\1/g,
-            "<span class='text-[#86efac]'>$1$2$1</span>"
-        )
-        // 2. Comments
-        .replace(
-            /\/\/.*/g,
-            "<span class='text-[#525252]'>$&</span>"
-        )
-        // 3. Keywords
-        .replace(
-            /\b(import|from|interface|const|export|default)\b/g,
-            "<span class='text-[#c084fc]'>$1</span>"
-        )
-        // 4. Types
-        .replace(
-            /\b(string|number|boolean)\b/g,
-            "<span class='text-[#06b6d4]'>$1</span>"
-        );
 }

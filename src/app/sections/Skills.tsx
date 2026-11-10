@@ -1,119 +1,52 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-    GitBranch,
-    Github,
-    Code2,
-    Figma,
-    Triangle,
-    Package,
-    Boxes,
-    FlaskConical,
-    Box,
-    Smartphone,
-    Network,
-} from "lucide-react";
 import { skills, tools, learningTools } from "@/lib/data";
-import SkillBar from "@/app/components/SkillBar";
-import { Tool } from "@/types";
 import { useLanguage } from "@/context/LanguageContext";
-
-const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-    GitBranch,
-    Github,
-    Code2,
-    Figma,
-    Triangle,
-    Package,
-    Boxes,
-    FlaskConical,
-    Box,
-    Smartphone,
-    Network,
-};
-
-function ToolItem({ tool, index }: { tool: Tool; index: number }) {
-    const Icon = iconMap[tool.icon];
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.05 }}
-            className="group flex flex-col items-center gap-2"
-        >
-            {Icon && (
-                <Icon className="h-8 w-8 text-muted-foreground transition-colors duration-200 group-hover:text-primary" />
-            )}
-            <span className="text-sm text-[#525252]">{tool.name}</span>
-        </motion.div>
-    );
-}
+import Section, { Reveal } from "@/app/components/Section";
 
 export default function Skills() {
     const { t } = useLanguage();
 
+    const groups = [
+        {
+            heading: t.skills.coreHeading,
+            items: skills.filter((s) => s.level !== "Learning").map((s) => s.name),
+        },
+        { heading: t.skills.toolsHeading, items: tools.map((tool) => tool.name) },
+        {
+            heading: t.skills.learningHeading,
+            items: [
+                ...skills.filter((s) => s.level === "Learning").map((s) => s.name),
+                ...learningTools.map((tool) => tool.name),
+            ],
+        },
+    ];
+
     return (
-        <section id="skills" className="py-32 px-6 lg:px-12">
-            <div className="mx-auto max-w-[1200px]">
-                {/* Section Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-                >
-                    <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.1em] text-primary">
-                        {t.skills.badge}
-                    </span>
-                    <h2 className="mb-4 text-3xl font-bold tracking-[-0.02em] text-foreground lg:text-5xl">
-                        {t.skills.heading}
-                    </h2>
-                    <p className="max-w-[600px] text-lg text-muted-foreground">
-                        {t.skills.description}
-                    </p>
-                </motion.div>
-
-                <div className="mt-16 grid grid-cols-1 gap-16 lg:grid-cols-2">
-                    {/* Technical Skills - Progress Bars */}
-                    <div>
-                        <h3 className="mb-8 text-lg font-semibold text-foreground">
-                            {t.skills.frontendHeading}
-                        </h3>
-                        <div className="space-y-6">
-                            {skills.map((skill, index) => (
-                                <SkillBar key={skill.name} skill={skill} index={index} />
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Tools & Others */}
-                    <div className="space-y-12">
-                        <div>
-                            <h3 className="mb-8 text-lg font-semibold text-foreground">
-                                {t.skills.toolsHeading}
-                            </h3>
-                            <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-4">
-                                {tools.map((tool, index) => (
-                                    <ToolItem key={tool.name} tool={tool} index={index} />
+        <Section id="skills" title={t.skills.heading} lead={t.skills.description}>
+            <dl className="border-b border-border">
+                {groups.map((group, index) => (
+                    <Reveal
+                        key={group.heading}
+                        delay={index * 0.06}
+                        className="grid gap-4 border-t border-border py-7 sm:grid-cols-[200px_1fr] sm:gap-8"
+                    >
+                        <dt className="text-[15px] font-medium text-foreground">{group.heading}</dt>
+                        <dd>
+                            <ul className="flex flex-wrap gap-2">
+                                {group.items.map((item) => (
+                                    <li
+                                        key={item}
+                                        className={index === 0 ? "tag border-faint/50 text-foreground" : "tag"}
+                                    >
+                                        {item}
+                                    </li>
                                 ))}
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 className="mb-8 text-lg font-semibold text-foreground">
-                                {t.skills.learningHeading}
-                            </h3>
-                            <div className="grid grid-cols-2 gap-6 sm:grid-cols-3">
-                                {learningTools.map((tool, index) => (
-                                    <ToolItem key={tool.name} tool={tool} index={index} />
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                            </ul>
+                        </dd>
+                    </Reveal>
+                ))}
+            </dl>
+        </Section>
     );
 }

@@ -30,7 +30,7 @@ export function useScrollPosition() {
     }, [handleScroll]);
 
     useEffect(() => {
-        const sectionIds = ["about", "projects", "skills", "experience", "contact"];
+        const sectionIds = ["about", "projects", "skills", "experience", "hobbies", "contact"];
         const observer = new IntersectionObserver(
             (entries) => {
                 // Track all intersecting entries and pick the one with the highest intersection ratio

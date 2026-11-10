@@ -68,16 +68,28 @@ export const projects: Project[] = [
         featured: true,
     },
     {
-        id: "feeling",
-        title: "Feeling",
+        id: "mrt",
+        title: "Masa Rotundă Timișoara",
         description:
-            "A quiet, human, and intentional application that offers emotionally aligned verses and reflections based on how you feel. AI-driven spiritual reflection.",
-        image: "/corneluu/images/feeling.png",
+            "The website of a nonprofit association, covering its projects, news, gallery, volunteering and donations.",
+        image: "/corneluu/images/projects/mrt.png",
         category: "web-app",
-        technologies: ["React", "Node.js", "Express", "OpenAI"],
-        liveUrl: "https://corneluu.github.io/feeling/",
-        githubUrl: "https://github.com/corneluu/feeling",
-        featured: true,
+        technologies: ["Astro", "Supabase"],
+        liveUrl: "https://corneluu.github.io/mrt/",
+        githubUrl: "https://github.com/corneluu/mrt",
+        featured: false,
+    },
+    {
+        id: "addicted2",
+        title: "Addicted2 Romania",
+        description:
+            "A bold presentation site for a Minecraft server, with game modes, how to join and one-click IP copy.",
+        image: "/corneluu/images/projects/addicted2.png",
+        category: "web-app",
+        technologies: ["HTML", "CSS", "JavaScript"],
+        liveUrl: "https://corneluu.github.io/addicted2-site/",
+        githubUrl: "https://github.com/corneluu/addicted2-site",
+        featured: false,
     },
     {
         id: "harmonia-christi",
@@ -92,13 +104,15 @@ export const projects: Project[] = [
         featured: true,
     },
     {
-        id: "ai-marketing",
-        title: "AI Marketing Assistant",
+        id: "feeling",
+        title: "Feeling",
         description:
-            "A custom-designed AI character that helps with marketing work. This 3D-style persona streamlines creative tasks and assists in building a unique brand presence.",
-        image: "/corneluu/images/ai-character.jpg",
-        category: "experiment",
-        technologies: ["AI Generation", "Digital Design", "Marketing Strategy"],
+            "A quiet, human, and intentional application that offers emotionally aligned verses and reflections based on how you feel. AI-driven spiritual reflection.",
+        image: "/corneluu/images/feeling.png",
+        category: "web-app",
+        technologies: ["React", "Node.js", "Express", "OpenAI"],
+        liveUrl: "https://corneluu.github.io/feeling/",
+        githubUrl: "https://github.com/corneluu/feeling",
         featured: true,
     },
     {
@@ -106,7 +120,7 @@ export const projects: Project[] = [
         title: "Portfolio Website",
         description:
             "A modern, dark-themed portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features smooth animations, responsive design, and accessibility.",
-        image: "/corneluu/images/profile.jpg",
+        image: "/corneluu/images/projects/portfolio.png",
         category: "web-app",
         technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
         liveUrl: "https://corneluu.github.io/corneluu/",
@@ -173,15 +187,109 @@ export const projects: Project[] = [
         githubUrl: "https://github.com/corneluu/calculator-aluat",
         featured: false,
     },
+    {
+        id: "voluntari",
+        title: "Școala Voluntarilor",
+        description:
+            "A short online course for choir and youth event volunteers, with 14 lessons, a test for each and a certificate at the end.",
+        image: "/corneluu/images/projects/voluntari.png",
+        category: "web-app",
+        technologies: ["JavaScript", "Supabase", "Google Login"],
+        liveUrl: "https://corneluu.github.io/voluntari/",
+        githubUrl: "https://github.com/corneluu/voluntari",
+        featured: false,
+    },
+    {
+        id: "caelestis",
+        title: "Caelestis",
+        description:
+            "A sheet music portal for a choir, with rehearsal audio for each voice, score viewing, search and downloads.",
+        image: "/corneluu/images/projects/caelestis.png",
+        category: "web-app",
+        technologies: ["React", "TypeScript", "Tailwind CSS"],
+        liveUrl: "https://corneluu.github.io/caelestis/",
+        githubUrl: "https://github.com/corneluu/caelestis",
+        featured: false,
+    },
+    {
+        id: "inctcpartituri",
+        title: "Întâlnirea Corurilor Portal",
+        description:
+            "The sheet music portal for a national choir meeting, with scores and rehearsal audio by voice, filtered by composer.",
+        image: "/corneluu/images/projects/inctcpartituri.png",
+        category: "web-app",
+        technologies: ["React", "TypeScript", "Tailwind CSS"],
+        liveUrl: "https://corneluu.github.io/inctcpartituri/",
+        githubUrl: "https://github.com/corneluu/inctcpartituri",
+        featured: false,
+    },
+    {
+        id: "cor-medjugorje",
+        title: "Cor Medjugorje",
+        description:
+            "A sheet music portal for the Romanian choir at Medjugorje, with scores, audio for each voice and YouTube links.",
+        image: "/corneluu/images/projects/cor-medjugorje.png",
+        category: "web-app",
+        technologies: ["React", "TypeScript", "Tailwind CSS"],
+        liveUrl: "https://corneluu.github.io/cor-medjugorje/",
+        githubUrl: "https://github.com/corneluu/cor-medjugorje",
+        featured: false,
+    },
+    {
+        id: "inctc",
+        title: "INCT 2026",
+        description:
+            "The event website for the national meeting of Catholic youth choirs in Timișoara, with guests, venue, programme and registration.",
+        image: "/corneluu/images/projects/inctc.png",
+        category: "web-app",
+        technologies: ["React", "CSS Modules"],
+        liveUrl: "https://corneluu.github.io/inctc/",
+        githubUrl: "https://github.com/corneluu/inctc",
+        featured: false,
+    },
+    {
+        id: "countdowninctc",
+        title: "Countdown INCTC",
+        description:
+            "A stage timer for running a live event, with preset countdowns for each moment of the programme.",
+        image: "/corneluu/images/projects/countdowninctc.png",
+        category: "web-app",
+        technologies: ["React", "TypeScript", "Vite"],
+        liveUrl: "https://corneluu.github.io/countdowninctc/",
+        githubUrl: "https://github.com/corneluu/countdowninctc",
+        featured: false,
+    },
+    {
+        id: "qrcodepermanent",
+        title: "QR Code Permanent",
+        description:
+            "A redirect page that keeps a printed QR code valid: the destination meeting link can change without reprinting the code.",
+        image: "/corneluu/images/projects/qr-permanent.svg",
+        category: "experiment",
+        technologies: ["HTML", "JavaScript"],
+        featured: false,
+    },
+    {
+        id: "react-menu-app",
+        title: "React Navigation App",
+        description:
+            "A small practice app demonstrating React hooks and navigation across five pages.",
+        image: "/corneluu/images/projects/react-menu-app.png",
+        category: "experiment",
+        technologies: ["React", "CSS"],
+        liveUrl: "https://corneluu.github.io/react-menu-app/",
+        githubUrl: "https://github.com/corneluu/react-menu-app",
+        featured: false,
+    },
 ];
 
 export const skills: Skill[] = [
-    { name: "React", level: "Intermediate", percentage: 65 },
-    { name: "TypeScript", level: "Learning", percentage: 40 },
-    { name: "Next.js", level: "Learning", percentage: 35 },
-    { name: "Tailwind CSS", level: "Intermediate", percentage: 75 },
-    { name: "JavaScript", level: "Advanced", percentage: 90 },
-    { name: "HTML/CSS", level: "Advanced", percentage: 95 },
+    { name: "React", level: "Intermediate" },
+    { name: "TypeScript", level: "Learning" },
+    { name: "Next.js", level: "Learning" },
+    { name: "Tailwind CSS", level: "Intermediate" },
+    { name: "JavaScript", level: "Advanced" },
+    { name: "HTML/CSS", level: "Advanced" },
 ];
 
 export const tools: Tool[] = [
@@ -246,18 +354,8 @@ export const socialLinks = [
         iconPath: "/corneluu/images/social/github.png",
     },
     {
-        name: "LinkedIn",
-        url: "https://linkedin.com",
-        iconPath: "/corneluu/images/social/linkedin.png",
-    },
-    {
         name: "Instagram (Personal)",
         url: "https://www.instagram.com/corneluu_/",
         iconPath: "/corneluu/images/social/instagram1.png",
-    },
-    {
-        name: "Instagram (Work)",
-        url: "https://www.instagram.com/corneluu__/",
-        iconPath: "/corneluu/images/social/instagram2.png",
     },
 ];

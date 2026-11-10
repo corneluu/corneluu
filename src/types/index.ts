@@ -17,7 +17,6 @@ export type SkillLevel = "Advanced" | "Intermediate" | "Beginner" | "Learning";
 export interface Skill {
     name: string;
     level: SkillLevel;
-    percentage: number;
 }
 
 export interface Tool {

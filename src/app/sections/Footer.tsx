@@ -6,37 +6,24 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
     const { t } = useLanguage();
-    const scrollToTop = () => {
-        smoothScrollTo(0);
-    };
 
     return (
-        <footer className="border-t border-border bg-background py-12">
-            <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-6 px-6 sm:flex-row lg:px-12">
-                <div className="flex flex-col items-center gap-2 sm:items-start">
-                    <a
-                        href="#"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            scrollToTop();
-                        }}
-                        className="text-xl font-bold text-foreground transition-colors hover:text-primary"
-                    >
-                        Corneluu
-                    </a>
-                    <p className="text-sm text-[#525252] flex items-center gap-2">
-                        <span>© {new Date().getFullYear()} {t.footer.rights}</span>
-                        <span className="rounded-full bg-secondary px-2 py-0.5 text-[10px] font-mono font-medium tracking-wider text-muted-foreground">v2.0.1</span>
-                    </p>
-                </div>
+        <footer className="border-t border-border px-6 py-10 lg:px-10">
+            <div className="mx-auto flex max-w-[1120px] flex-col items-start justify-between gap-5 text-sm text-faint sm:flex-row sm:items-center">
+                <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <span className="text-muted-foreground">Miron Cornel-Iosif</span>
+                    <span>
+                        © {new Date().getFullYear()} {t.footer.rights}
+                    </span>
+                    <span className="font-mono text-xs">v2.0.1</span>
+                </p>
 
                 <button
-                    onClick={scrollToTop}
-                    aria-label={t.footer.backToTop}
-                    title={t.footer.backToTop}
-                    className="group flex h-10 w-10 items-center justify-center rounded-full border border-border bg-transparent transition-all duration-300 hover:scale-110 hover:bg-secondary active:scale-95"
+                    onClick={() => smoothScrollTo(0)}
+                    className="inline-flex items-center gap-1.5 text-muted-foreground transition-colors duration-200 hover:text-foreground"
                 >
-                    <ArrowUp className="h-5 w-5 text-muted-foreground transition-colors group-hover:text-foreground" />
+                    {t.footer.backToTop}
+                    <ArrowUp className="h-3.5 w-3.5" />
                 </button>
             </div>
         </footer>
